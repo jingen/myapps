@@ -1,0 +1,46 @@
+<ul class="breadcrumb text-info instructions">
+  <li>1.Enter Words <span class="divider"> > </span></li>
+  <li>2.Click the "Check" button<span class="divider"> > </span></li>
+  <li>3.Enjoy</li>
+</ul>
+
+<div ng-controller="SpellCheck">
+
+ <div class="form-inline">
+  <label>
+   <span class="label label-info mainlabel">Words:</span>
+ </label>
+
+   <textarea class="input-block-level" rows="3" placeholder="Enter words here..." ng-model="words">
+ </textarea>
+
+</div>
+
+<hr>
+
+ <div>
+  <button class="btn btn-primary btn-large" ng-click="check()">Check</button>
+</div>
+
+<hr>
+
+  <div class="well well-large words-board">
+    <p class="lead label label-success">Output:</p>
+    <ul class="unstyled">
+      <li ng-repeat="result in results">
+        <span class="label label-important">{{result.string}}:</span>
+
+        <div>
+          <span class="label label-inverse">1.Description:</span><span class="label label-info">{{result.description}}</span>
+        </div>
+        <div>
+          <span class="label label-inverse">2.Suggestions:</span>
+          <span class="label label-info" ng-repeat="suggestion in result.suggestions">
+            {{suggestion}}
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>

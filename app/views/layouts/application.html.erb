@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="apps">
 <head>
-  <title>Myapps</title>
+  <title>Jingen Lin's Apps</title>
+
+  <link rel="stylesheet" href="/css/bootstrap-all.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -10,5 +12,14 @@
 
 <%= yield %>
 
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/angular.min.js"></script>
+<script src="/js/angular-ui-router.min.js"></script>
+<script src="/js/angular-file-upload.min.js"></script>
+
+<script src="/js/apps-initializer.js"></script>
+<script src="/js/resize-images.js"></script>
+<script src="/js/spell-check.js"></script>
 </body>
 </html>

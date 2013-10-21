@@ -45,8 +45,10 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # my gems
-gem 'rmagick'
-gem 'carrierwave'
-gem 'after_the_deadline'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'after_the_deadline'
+

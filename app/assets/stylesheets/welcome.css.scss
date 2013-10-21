@@ -1,0 +1,55 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.logo{
+  position: relative;
+  top: -41px;
+  left: 78px;
+  width: 40px;
+}
+
+.body{
+  position: relative;
+  top: 50px;
+}
+
+.mainlabel{
+  font-size: 14px;
+  padding: 4px;
+  margin: 5px 0;
+}
+
+.input-url{
+  .label{
+    @extend .mainlabel;
+  }
+  .input-block-level{
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+
+.dashboard{
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.footer{
+  position: relative;
+  top: 90px;
+}
+
+.instructions{
+  font-size: 1.3em;
+}
+
+.words-board{
+  .label{
+    font-size: 14px;
+  }
+  span{
+    padding: 4px;
+    margin: 5px;
+  }
+}

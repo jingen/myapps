@@ -1,4 +1,8 @@
 Myapps::Application.routes.draw do
+  root "welcome#index"
+  post "images/generate" => "images#generate"
+  post "words/check" => "words#check"
+  get "partial/:partial" => "partial#partial"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

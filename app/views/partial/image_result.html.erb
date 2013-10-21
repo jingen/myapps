@@ -1,0 +1,6 @@
+<div class="thumbnail clearfix">
+  <span class="label label-info">Ready</span>
+  <img class="img-polaroid pull-left" alt="resized image" ng-show="!imageChanging" src="{{newImage.url}}">
+  <img class="pull-left" src="/img/loading.gif" ng-show="imageChanging">
+  <a class="btn btn-success btn-large pull-right download" href="{{newImage.url}}" download>download</a>
+</div>
