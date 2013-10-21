@@ -18,3 +18,4 @@
   + after_the_deadline for spell checking app
   + angular ui router
 
+## Note: Running this apps, need to install tool - ImageMagick
