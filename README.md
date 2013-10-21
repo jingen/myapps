@@ -16,4 +16,5 @@
 ## Libraries
   + carrierwave(carrierwave-mongoid), rmagick, mongoid for image resizing app
   + after_the_deadline for spell checking app
+  + angular ui router
 
