@@ -8,6 +8,7 @@
 ## Frameworks
   + Ruby on Rails
   + Angular.js
+  + jQuery
   + Bootstrap (twitter)
 
 ## Database
