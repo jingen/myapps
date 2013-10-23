@@ -88,12 +88,11 @@
        <span class="label label-info" ng-show="ready">Ready</span>
 
         <div ng-show="resizing">
-          <img class="img-polaroid pull-left" alt="Image Preview" ng-show="!imageChanging" src="{{newImage.url}}">
+          <img class="img-polaroid pull-left" alt="Image Preview" ng-show="!imageChanging" ng-src="{{newImage.url}}">
           <img class="pull-left" src="/img/loading.gif" ng-show="imageChanging">
         </div>
 
-
-        <a class="btn btn-success btn-large pull-right download" href="{{newImage.url}}" download>Download</a>
+        <a class="btn btn-success btn-large pull-right download" ng-href="{{newImage.url}}" download>Download</a>
       </div>
 
     </div>
