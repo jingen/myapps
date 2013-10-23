@@ -19,3 +19,4 @@
 /public/uploads
 
 /.gitignore
+config/environments/production.rb
