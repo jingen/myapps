@@ -1,18 +1,49 @@
 <ul class="breadcrumb text-info instructions">
-  <li>1.Enter URL <span class="divider"> > </span></li>
-  <li>2.Specify the dimensions <span class="divider"> > </span></li>
-  <li>3.Select type of constraints <span class="divider"> > </span></li>
-  <li>4.Resize and Enjoy</li>
+  <li>Enter URL Or Upload an Image<span class="divider"> > </span></li>
+  <li>Specify the dimensions and the constraints<span class="divider"> > </span></li>
+  <li>Resize and Enjoy</li>
 </ul>
 
 
   <div ng-controller="ImageResize">
-       <div class="input-url">
+
+    <div class="tabbable">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#input-url" data-toggle="tab" ng-click="clearUpload()">Enter URL</a></li>
+        <li><a href="#upload-image" data-toggle="tab" ng-click="clearURL()">Upload an image</a></li>
+      </ul>
+    </div>
+
+    <div class="tab-content">
+
+      <div class="tab-pane active" id="input-url">
+        <div class="input-url">
          <span class="label label-info">Input Image URL:</span>
          <input class="input-block-level"  type="url" ng-model="image.remote_image_url" placeholder="http://" ng-change="urlChange()">
-         <span class="help-block label label-success">e.g. http://www.example.com/image.jpg</span>
+           <span class="help-block label label-success">e.g. http://www.example.com/image.jpg</span>
        </div>
-   
+      </div>
+
+
+      <div class="tab-pane" id="upload-image">
+        <div class="fileupload fileupload-new" data-provides="fileupload">
+          <div class="input-append">
+            <div class="uneditable-input span3"> 
+              <i class="icon-file fileupload-exists"></i>
+              <span class="fileupload-preview"></span>
+            </div>
+            <span class="btn btn-file">
+              <span class="fileupload-new">Upload Image</span>
+              <span class="fileupload-exists">Change</span>
+              <input type="file" ng-file-select="onFileSelect($files)"/>
+            </span>
+            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload" id="fileDismiss">Remove</a>
+          </div>
+        </div>        
+      </div>
+
+    </div>
+
        <div class="well well-large dashboard">
          <p class="lead"><b>Your desired dimensions:</b></p>
          <div class="form-inline">
@@ -30,8 +61,6 @@
              </span>
    
            </label>
-   
-   
          </div>
    
          <div class="form-inline">
@@ -85,7 +114,7 @@
        </div>
 
        <div class="thumbnail clearfix">
-       <span class="label label-info" ng-show="ready">Ready</span>
+         <span class="label label-info" ng-show="ready">Ready</span>
 
         <div ng-show="resizing">
           <img class="img-polaroid pull-left" alt="Image Preview" ng-show="!imageChanging" ng-src="{{newImage.url}}">
@@ -94,5 +123,4 @@
 
         <a class="btn btn-success btn-large pull-right download" ng-href="{{newImage.url}}" download>Download</a>
       </div>
-
     </div>

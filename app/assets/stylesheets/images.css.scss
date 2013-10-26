@@ -1,3 +1,23 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mainlabel{
+  font-size: 14px;
+  padding: 4px;
+  margin: 5px 0;
+}
+
+.input-url, .upload-image{
+  .label{
+    @extend .mainlabel;
+  }
+  .input-block-level{
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.tab-pane .uneditable-input{
+  white-space: nowrap;
+}
