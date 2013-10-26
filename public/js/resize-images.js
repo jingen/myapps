@@ -110,21 +110,17 @@ apps.controller('ImageResize', ['$scope', '$http', '$state', 'Image',  function(
     }
     $scope.checkReady();
   };
-
+//upload image info is saved to $scope.file
   $scope.onFileSelect = function($files){
     $scope.file = $files[0];
   };
-// ajax, set user arguments to server for generating new image and send back the result
-  $scope.newImage = {};
-  $scope.$watch('newImage',function(){
-    console.log("update");
-  });
 
+// ajax, set user arguments to server for generating new image and send back the result
   $scope.createImage = function(){
     $scope.ready = false;
     $scope.resizing = true;
     $scope.imageChanging = true;
-
+    console.log($scope.file);
     $http.uploadFile({
       url: '/images/generate',
       data: $scope.image,
@@ -140,7 +136,9 @@ apps.controller('ImageResize', ['$scope', '$http', '$state', 'Image',  function(
   };
 
   $scope.clearUpload = function(){
-    $(".fileupload").fileupload("reset");
+    $(".fileupload").fileupload("clear");
+    $scope.file = null; 
+    console.log($scope.file);
   };
 
   $scope.clearURL = function(){

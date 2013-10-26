@@ -113,14 +113,13 @@
          <button class="btn btn-primary btn-large pull-right" ng-click="createImage()" disabled id="resizeBtn">Resize</button>
        </div>
 
-       <div class="thumbnail clearfix">
-         <span class="label label-info" ng-show="ready">Ready</span>
+       <div class="alert alert-info clearfix">
+         <span class="label label-info label-ready" ng-show="ready">Ready</span>
+         <a class="btn btn-success btn-large pull-right download" ng-href="{{newImage.url}}" download>Download</a>
+       </div>
 
-        <div ng-show="resizing">
+       <div class="thumbnail clearfix" ng-show="resizing">
           <img class="img-polaroid pull-left" alt="Image Preview" ng-show="!imageChanging" ng-src="{{newImage.url}}">
           <img class="pull-left" src="/img/loading.gif" ng-show="imageChanging">
-        </div>
-
-        <a class="btn btn-success btn-large pull-right download" ng-href="{{newImage.url}}" download>Download</a>
       </div>
     </div>
