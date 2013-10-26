@@ -15,7 +15,7 @@ apps.controller('ImageResize', ['$scope', '$http', '$state', 'Image',  function(
     var image = $scope.image;
     if(
         ((typeof image.remote_image_url != "undefined" && image.remote_image_url != "") ||
-          (typeof $scope.file != "undefined"))
+          (typeof $scope.file != "undefined" && $scope.file != null))
         &&
         (
           (
@@ -113,14 +113,16 @@ apps.controller('ImageResize', ['$scope', '$http', '$state', 'Image',  function(
 //upload image info is saved to $scope.file
   $scope.onFileSelect = function($files){
     $scope.file = $files[0];
+    $scope.checkReady();
   };
 
 // ajax, set user arguments to server for generating new image and send back the result
   $scope.createImage = function(){
     $scope.ready = false;
+    $scope.failed = false;
+    $scope.success = false;
     $scope.resizing = true;
     $scope.imageChanging = true;
-    console.log($scope.file);
     $http.uploadFile({
       url: '/images/generate',
       data: $scope.image,
@@ -128,21 +130,27 @@ apps.controller('ImageResize', ['$scope', '$http', '$state', 'Image',  function(
     }).success(function(data){
       $scope.$apply(function(){
         $scope.newImage = data;
-        if (data.success) {
-          $scope.imageChanging = false;
-        };
+        $scope.imageChanging = false;
+        $scope.success = true;
+      });
+    }).error(function(data){
+      $scope.$apply(function(){
+        $scope.imageChanging = false;
+        $scope.failed = true;
+        $scope.resizing = false;
       });
     });
   };
 
   $scope.clearUpload = function(){
-    $(".fileupload").fileupload("clear");
+    $(".fileupload").fileupload("reset");
+    $('#resizeBtn').attr('disabled','');
     $scope.file = null; 
-    console.log($scope.file);
   };
 
   $scope.clearURL = function(){
     $scope.image.remote_image_url = "";
+    $('#resizeBtn').attr('disabled','');
   };
 }]);
 

@@ -99,22 +99,24 @@
          <hr>
          <label class="radio">
            <input type="radio" ng-model="image.resize_method" value="free" id="radioFree">
-           <b>Without any constraint.</b>
+           <b>No constraint.</b>
          </label>
          <label class="radio">
            <input type="radio" ng-model="image.resize_method" value="fit" id="radioFit">
-           <b>Not crop the image.</b> Fit within the specified dimensions while retaining the original aspect ratio.
+           <b>Fit and retain the original aspect ratio. Not to crop the image.</b> 
          </label>
          <label class="radio">
            <input type="radio" ng-model="image.resize_method" value="fill" id="radioFill">
-           <b>If necessary, crop the image in the larger dimension.</b> Fit within the specified dimensions while retaining the original aspect ratio. 
+           <b>Fit and retain the original aspect ratio. If necessary, crop the image.</b> 
          </label>
    
          <button class="btn btn-primary btn-large pull-right" ng-click="createImage()" disabled id="resizeBtn">Resize</button>
        </div>
 
        <div class="alert alert-info clearfix">
-         <span class="label label-info label-ready" ng-show="ready">Ready</span>
+         <span class="label label-info label-status" ng-show="ready">Ready</span>
+         <span class="label label-success label-status" ng-show="success && !ready" >Success</span>
+         <span class="label label-important label-status" ng-show="failed && !ready">Failed</span>
          <a class="btn btn-success btn-large pull-right download" ng-href="{{newImage.url}}" download>Download</a>
        </div>
 
