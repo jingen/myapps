@@ -1,6 +1,6 @@
 Myapps::Application.routes.draw do
   root "welcome#index"
-  post "images/generate" => "images#generate"
+  post "images/create" => "images#create"
   post "words/check" => "words#check"
   get "partial/:partial" => "partial#partial"
   # The priority is based upon order of creation: first created -> highest priority.

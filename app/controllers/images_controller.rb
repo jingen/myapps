@@ -2,9 +2,9 @@ class ImagesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   # deal with the image resizing request and send back the results
-  def generate
+  def create 
     @image ||= Image.new(image_params)
-    @image.remote_image_url = params[:remote_image_url] if !params[:remote_image_url].nil?
+    @image.remote_image_url = params[:remote_image_url] unless params[:remote_image_url].nil?
     if @image.save
       render json: {"url" => @image.image_url(:resized), "success" => true}
     else

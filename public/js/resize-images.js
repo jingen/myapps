@@ -1,4 +1,4 @@
-// generate image service
+// image generating service
 apps.factory('Image', function(){
   return {
     resize_method: "free"
@@ -124,7 +124,7 @@ apps.controller('ImageResize', ['$scope', '$http', '$state', 'Image',  function(
     $scope.resizing = true;
     $scope.imageChanging = true;
     $http.uploadFile({
-      url: '/images/generate',
+      url: '/images/create',
       data: $scope.image,
       file: $scope.file
     }).success(function(data){

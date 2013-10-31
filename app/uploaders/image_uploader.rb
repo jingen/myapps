@@ -38,7 +38,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # generate the new image with the desired dimensions
   def resize_image
-    if (!model.width.nil? && !model.height.nil? && model.width > 0 && model.height > 0) or !model.scale.nil?
+    if (!model.width.nil? && !model.height.nil? && model.width > 0 && model.height > 0) || !model.scale.nil?
       manipulate! do |img|
         if !model.scale.nil?
           img = img.resize(model.scale/100.0)
