@@ -52,3 +52,7 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'after_the_deadline'
 
+group :development do
+  gem 'hirb'
+  gem 'awesome_print', git: 'https://github.com/michaeldv/awesome_print.git'
+end
