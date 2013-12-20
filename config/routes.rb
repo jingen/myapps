@@ -1,8 +1,11 @@
 Myapps::Application.routes.draw do
   root "welcome#index"
   post "images/generate" => "images#generate"
-  post "words/check" => "words#check"
+  post "words/check" => "words#check", :as => :word_check
   get "partial/:partial" => "partial#partial"
+  # match "/about" => "info#about",via: [:get, :post], :as => :about # about_path 
+  match "/about(.:format)" => "info#about",via: [:get, :post], :as => :about # about_path 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
